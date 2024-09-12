@@ -11,7 +11,7 @@ import jakarta.persitence.Entity;
 import jakarta.persitence.GeneratedValue;
 import jakarta.persitence.GenerationType;
 import jakarta.persitence.Id;
-import jakarta.persitence.OneToMany;
+import jakarta.persitence.ManyToMany;
 import jakarta.persitence.Table;
 
 @Entity
@@ -22,22 +22,32 @@ public class Plataforma{
     @GeneratedValue(strategy = GenerationType.IDENTIFY)
     private long id;
     @Column (unique = true, nullable = false)
-    private String name;
+    private String nome;
 
-public void setId(long id) {
-    this.id = id;
-}
+    @ManyToMany(mappedBy = "plataformas")
+    private Set<Jogo> jogos = new HashSet<>();
 
-public long getId(){
-    return id;
-}
+    public void setId(long id) {
+        this.id = id;
+    }
 
-public void setName(String name){
-    this.name = name;
-}
+    public long getId(){
+        return id;
+    }
 
-public String getName() {
-    return name;
-}
+    public void setNome(String nome){
+        this.nome = nome;
+    }
 
+    public String getNome() {
+        return nome;
+    }
+
+    public Set<Jogo> getJogos(){
+        return jogos;
+    }
+
+    public void setJogos(Set<Jogo> jogos){
+        this.jogos = jogos;
+    }
 }

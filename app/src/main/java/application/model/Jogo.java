@@ -11,7 +11,8 @@ import jakarta.persitence.Entity;
 import jakarta.persitence.GeneratedValue;
 import jakarta.persitence.GenerationType;
 import jakarta.persitence.Id;
-import jakarta.persitence.OneToMany;
+import jakarta.persitence.ManyToMany;
+import jakarta.persitence.ManyToOne;
 import jakarta.persitence.Table;
 
 @Entity
@@ -19,25 +20,52 @@ import jakarta.persitence.Table;
 
 public class Jogo{
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTIFY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @Column (unique = true, nullable = false)
-    private String title;
+    @Column(nullable = true)
+    private String titulo;
 
-public void setId(long id) {
-    this.id = id;
-}
+    @ManyToOne
+    @JoinColumn(name = "id_genero")
+    private Categoria categoria;
 
-public long getId(){
-    return id;
-}
+    @ManyToMany
+    @JoinTable(
+        name = "jogos_possuem_plataformas",
+        joinColumns = @JoinColumn(name="id_jogos"),
+        inverseJoinColumns = @JoinColumn(name="id_plataformas"))
 
-public void setTitle(String title){
-    this.title = title;
-}
+    private Set<Plataforma> plataformas = new HashSet<>();
 
-public String getTitle() {
-    return title;
-}
+    public long getId(){
+        return id;
+    }
 
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getTitulo(){
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public Categoria getCategoria() {
+    return categoria;
+    }
+
+    public void setCategoria(Categoria categoria){
+        this.categoria = categoria;
+    }
+
+    public Set<Plataforma> getPlataforma() {
+        return plataforma;
+        }
+    
+    public void setPlataforma(Set<Plataforma> plataforma){
+        this.plataforma = plataforma;
+    }
 }
