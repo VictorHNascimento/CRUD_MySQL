@@ -61,11 +61,11 @@ public class Jogo{
         this.categoria = categoria;
     }
 
-    public Set<Plataforma> getPlataforma() {
+    public Set<Plataforma> getPlataformas() {
         return plataforma;
         }
     
-    public void setPlataforma(Set<Plataforma> plataforma){
+    public void setPlataformas(Set<Plataforma> plataforma){
         this.plataforma = plataforma;
     }
 }
