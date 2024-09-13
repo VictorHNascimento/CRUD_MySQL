@@ -64,7 +64,7 @@ public String update(
         if(plataforma.isPresent()){
             plataforma.get().setNome(nome);
             
-            plataformaRepo.save(Plataforma.get());
+            plataformaRepo.save(plataforma.get());
         }
 
         return "redirect:/plataforma/list";

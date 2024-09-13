@@ -64,7 +64,7 @@ public String update(
         if(categoria.isPresent()){
             categoria.get().setNome(nome);
             
-            categoriaRepo.save(Categoria.get());
+            categoriaRepo.save(categoria.get());
         }
 
         return "redirect:/categoria/list";

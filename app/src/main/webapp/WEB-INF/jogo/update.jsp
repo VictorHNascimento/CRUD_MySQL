@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib uri="jakarta.tags.core" prefix="c" %>
+<%@ include file="navbar.jsp" %>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -26,9 +27,9 @@
                 </div>
                 <div class="form-group">
                     <label for="plataforma">Plataforma(s):</label>
-                    <c:forEach var="c" items="${plataformas}">
+                    <c:forEach var="p" items="${plataformas}">
                     <div class="custom-control custom-checkbox">
-                        <input type="checkbox" ${jogo.plataformas.contains(p) ? "checked" : ""} class="custom-control-input" name="plataformas" value="${p.id}" id="{$p.id}" />
+                        <input type="checkbox" ${jogo.plataformas.contains(p) ? "checked" : ""} class="custom-control-input" name="plataformas" value="${p.id}" id="${p.id}" />
                         <label class="custom-control-label" for="${p.id}">${p.nome}</label>
                     </div>
                     </c:forEach>

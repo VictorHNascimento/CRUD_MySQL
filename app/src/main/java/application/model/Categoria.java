@@ -19,7 +19,7 @@ import jakarta.persistence.Table;
 
 public class Categoria{
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTIFY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column (unique = true, nullable = false)
     private String nome;
@@ -43,7 +43,7 @@ public class Categoria{
         return nome;
     }
 
-    public set<Jogo> getJogos() {
+    public Set<Jogo> getJogos() {
         return jogos;
     }
 

@@ -3,18 +3,18 @@
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
-        <meta charset="UTF-8" />
+        <meta charset="UTF-8">
         <title>Jogos</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     </head>
     <body>
         <div class="container">
-        <h1>Jogos</h1>
+            <h1>Jogos</h1>
             <a href="/jogo/insert" class="btn btn-primary">Novo Jogo</a>
             <table class="table">
                 <tr>
-                    <th>ID</th>
-                    <th>Nome</th>
+                    <th>Id</th>
+                    <th>Título</th>
                     <th>Categoria</th>
                     <th>Plataformas</th>
                     <th>&nbsp;</th>
@@ -26,8 +26,8 @@
                         <td>${item.categoria.nome}</td>
                         <td>
                             <c:forEach var="p" varStatus="s" items="${item.plataformas}">
-                                ${s.getCount() > 1 ? ", " : ""}
-                                ${p.nome}
+                                ${p.nome}${s.getCount() > 1 ? ", " : ""}
+                            </c:forEach>
                         </td>
                         <td>
                             <a href="/jogo/update?id=${item.id}" class="btn btn-warning">Editar</a>
@@ -37,5 +37,5 @@
                 </c:forEach>
             </table>
         </div>
-    </body>    
+    </body>
 </html>

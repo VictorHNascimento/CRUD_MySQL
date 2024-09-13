@@ -49,7 +49,7 @@ public class JogoController {
 
         Jogo jogo = new Jogo();
         jogo.setTitulo(titulo);
-        jogo.setCategoria(categoriaRepo.findById(idCategoria)).get();
+        jogo.setCategoria(categoriaRepo.findById(idCategoria).get());
         for(long p: idsPlataformas){
             Optional<Plataforma> plataforma = plataformaRepo.findById(p);
             if(plataforma.isPresent()){
@@ -97,7 +97,7 @@ public class JogoController {
                     }
                 }
                 jogo.get().setPlataformas(updatePlataforma);
-                jogoRepo.save(Jogo.get());
+                jogoRepo.save(jogo.get());
             }
 
             return "redirect:/jogo/list";
