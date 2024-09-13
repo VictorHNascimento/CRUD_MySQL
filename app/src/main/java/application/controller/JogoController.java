@@ -30,14 +30,14 @@ public class JogoController {
 
     @RequestMapping("/list")
     public String list(Model ui){
-        ui.addAtribute("jogos", jogoRepo.findAll());
+        ui.addAttribute("jogos", jogoRepo.findAll());
         return "jogo/list";
     }
 
     @RequestMapping("/insert")
     public String insert(Model ui) {
-        ui.addAtribute("categorias", categoriaRepo.findAll());
-        ui.addAtribute("plataformas", plataformaRepo.findAll());
+        ui.addAttribute("categorias", categoriaRepo.findAll());
+        ui.addAttribute("plataformas", plataformaRepo.findAll());
         return "jogo/insert";
     }
 
@@ -68,9 +68,9 @@ public class JogoController {
         Optional<Jogo> jogo = jogoRepo.findById(id);
 
         if(jogo.isPresent()) {
-            ui.addAtribute("jogo", jogo.get());
-            ui.addAtribute("categorias", categoriaRepo.findAll());
-            ui.addAtribute("plataformas", plataformaRepo.findAll());
+            ui.addAttribute("jogo", jogo.get());
+            ui.addAttribute("categorias", categoriaRepo.findAll());
+            ui.addAttribute("plataformas", plataformaRepo.findAll());
             return "jogo/update";
         }
 
@@ -111,7 +111,7 @@ public class JogoController {
             Optional<Jogo> jogo = jogoRepo.findById(id);
 
             if(jogo.isPresent()) {
-                ui.addAtribute("jogo", jogo.get());
+                ui.addAttribute("jogo", jogo.get());
                 return "jogo/delete";
             }
 

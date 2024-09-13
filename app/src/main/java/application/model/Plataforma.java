@@ -6,13 +6,13 @@ import java.util.Set;
 
 import javax.annotation.processing.Generated;
 
-import jakarta.persitence.Column;
-import jakarta.persitence.Entity;
-import jakarta.persitence.GeneratedValue;
-import jakarta.persitence.GenerationType;
-import jakarta.persitence.Id;
-import jakarta.persitence.ManyToMany;
-import jakarta.persitence.Table;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.Table;
 
 @Entity
 @Table (name = "plataformas")

@@ -20,7 +20,7 @@ public class CategoriaController {
 
     @RequestMapping("/list")
     public String list(Model ui){
-        ui.addAtribute("categorias", categoriaRepo.findAll());
+        ui.addAttribute("categorias", categoriaRepo.findAll());
         return "categoria/list";
     }
 
@@ -47,7 +47,7 @@ public class CategoriaController {
         Optional<Categoria> categoria = categoriaRepo.findById(id);
 
         if(categoria.isPresent()) {
-            ui.addAtribute("categoria", categoria.get());
+            ui.addAttribute("categoria", categoria.get());
             return "categoria/update";
         }
 
@@ -78,7 +78,7 @@ public String delete(
         Optional<Categoria> categoria = categoriaRepo.findById(id);
 
         if(categoria.isPresent()) {
-            ui.addAtribute("categoria", categoria.get());
+            ui.addAttribute("categoria", categoria.get());
             return "categoria/delete";
         }
 
